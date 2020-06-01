@@ -1,0 +1,67 @@
+---
+title: "Next"
+author: ""
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    df_print: paged # default
+    keep_md: no
+    #theme: united
+    toc: no
+    toc_float: no
+---
+
+
+```{r global_options, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
+knitr::opts_chunk$set(
+  tidy = FALSE,
+  echo = TRUE,
+  cache = FALSE,
+  # results='asis',
+  message = FALSE,
+  warning = FALSE,
+  fig.show = "asis",
+  fig.align = "center",
+  fig.width = 8, fig.height = 8
+)
+
+if (!require("pacman")) install.packages("pacman")
+p_load(  here,
+   rio, readxl, # x importare da STATA
+  tidyr, lubridate, dplyr, stringr, skimr, 
+  janitor,# dataset manipulation
+  # tribble, # x fare tabelle a mano
+  ggplot2, # grafici
+  DT,  pander,  kableExtra # tabelle html
+
+)
+## Theme for graphs
+# cleanup <- theme(
+#   panel.grid.major = element_blank(),
+#   panel.grid.minor = element_blank(),
+#   panel.background = element_blank(),
+#   axis.line = element_line(colour = "black"),
+#   legend.key = element_rect(fill = "white"),
+#   text = element_text(size = 15)
+# )
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# a custom R function to insert the correct syntax depending on the output format using the is_latex_output() and is_html_output() functions in knitr as follows:
+colorize <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color, 
+      x)
+  } else x
+}
+
+# `r colorize("some words in red", "red")`
+```
+# TO DO
+
+

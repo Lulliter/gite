@@ -1,0 +1,50 @@
+---
+title: "Minutes Q&A Infra Themes present 25May2020.Rmd"
+author: "Luisa M Mimmi"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    df_print: paged # default
+    keep_md: no
+    #theme: united
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup2, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+# a custom R function to insert the correct syntax depending on the output format using the is_latex_output() and is_html_output() functions in knitr as follows:
+colorize <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color, 
+      x)
+  } else x
+}
+
+# `r colorize("some words in red", "red")`
+```
+
+#### Q&A 
+
+`r colorize("Gelsomina", "red")`
+
++ OK Maintenamce
++ **Infrastrutture Digitali**: come superare difficolta' tecniche e finanziarie per le aree remote? 
+  +  INTERSEZIONE TRA DIGITALE E SANITARIO (anche alla luce del COVID, quanto infra sanitario e' rilevante? )
++ OCSE .... ?
++ Allegato Mit parla di "Nature-based Infrastructure" & *Landscape 4.0* (cosa c'entra con lavoro (Bruegel, IAI, EIB)) 
++ *sostenibilita*' possiamo sviluppare noi 
++ approccio pubblico privato possiamo sviluppare noi 
+
+`r colorize("Other Q", "red")`
+
++ Andrea: Come fare per reti che sono internazionali - sovranita' nazionale
++ Cecilia: Zone remote eteregeneita' dei paesi? (OCSE mappa disponibilita')
++ Valeria: risorse accantonate vs utilizzo
++ GV: infra volani importanti di sviluppo / moltiplicatore bla bla 
+

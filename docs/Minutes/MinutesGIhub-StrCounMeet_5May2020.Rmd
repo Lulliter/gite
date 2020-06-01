@@ -1,0 +1,112 @@
+---
+title: "Minutes Str. Coun. Meet 5May2020.Rmd"
+author: "Luisa M Mimmi"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    df_print: paged # default
+    keep_md: no
+    #theme: united
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+# a custom R function to insert the correct syntax depending on the output format using the is_latex_output() and is_html_output() functions in knitr as follows:
+colorize <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color, 
+      x)
+  } else x
+}
+
+# `r colorize("some words in red", "red")`
+```
+
+### Meeting Str. Coun. Meet 5May2020
+
++ Gomes Brasil ... saluto
+
+ 
+
+## Matters for Noting
+#### 2.1 GI Hub Board update
+> + Robert Miliner agenda... 
+membri del board che ci sono o no (Kathy Sierra is here)
+
+#### 2.2 GI Hub Activities update
+> upcoming board meeting (9 maggio)
+>  + discussione di dicembre: transition governance going on in the hub / results framework) // reorgan HR forecast / audit & risk manager committee (cash flow etc) 
+
+
+#### 2.3 GI Hub REference guide Cross-border Infrastructure Guidance
++ LP: more comments / updates
++ 13/15 activities - some diverted in 2nd half of 2020
++ **REference guide Cross-border Infrastructure** (GIhub/OECD)
++ Jeffrey Baker coordination with DWG (fostering competition / role of private sector) OK Brazil (learn lessons for the region in integrtd mkt exp)
++ EBRD: cross-border infra eastern europe + china (ci stiamo gia' lavorando) 
+
++ Marie Lam-Frendo: OK fostering competition/private sector
+
+
+#### 2.4 InfraCompass 2.0 --> 
++ Marie Lam-Frendo: comments taken into considerations / more countries included / tool 81 countries
++ LP: skeptical on the rating you are using in the InfraCompass analysis, bc of the pressure from the crisis --> maintain better engagement at country-level
++ Rakan Bindohaish: *Cross-border Infrastructure Guidance* IWG is 
++ Spain (Juan Luis Diez): 
++ UK: small suggestion: 
++ US (Jeffrey Baker): concern about timing / methodology (great details) 
++ EBRD: we like and can engage more
+
+
+## Matters for Discussion
+#### 3.1 GI Hub Concept Note: Post-COVID-19 recovery
++ MLF: objective... / intended for July 2020 + maybe follow-up
++ ARG: more work on this... 
++ AUstr: we welcome focus on Covid & what it means in infrastructure (we are awash with savings, here but there are challenges) // it's different from financial crisis // there is a **LINK TO PRODUCTIVITYs** (embodied in the quality infrastructure agenda)
++ BRA: non e' detto che le crisi siano comparabili... // link guidance to discussions had in IWG // help improve resilience... // **include particip of private sector but without lowering the bar for selecting and prioritizing messages** (with the excuse we are fighting the pandemia)
++ CAN (Sarah Tessier): 
++ Germ (Elke Bauman): OK refocusing and reprioritizing on the crisis
++ ITA (LP): we like the analysis (inpact of infra spending in the context of 2008 financial crisis) ok infratech // further analysis will be done next year when we will have more information 
++ Saudi: 
++ Singapore: How we invest and why we invest... how covid changes the way we think about infrastructure (**how do transport change in a world where we need social distnacing**? )
++ Spain: distance working and robotics + UK: last part on infra? or should we keep it more broad (resilience of infra) 
++ US (Jeffrey Baker treasury): scope.. what about supporting utility balance sheets?  // water demand down --> low revenues // having a near term vs long term recovery strategy
++ Matthew Jordan-Tank (EBRD): MDBs together 200 bn announced of support to COVID // **tilt to green** (some stresses to that ... fiscal constraints, drop in prices of oil will require further support to keep the agenda alive) // coordinate all the packages
+
++ MLF: Saudi want this embedded into the action plan
+
+#### 3.2 GI Hub Business Plan and activities for 2020- 2021
+> MLF:what are the 3/5 initiative that are really important? 
+
++ ARG: 
++ AUS: link GIHUB work with the action plan (jobs, ) add some words in mission plan ? (productivity, work, growth, QI agenda, data initiative...?) // variation on the circular economy focused on ESG // women inclusion
++ BRA: bold agenda /// PPP model need to advance quickly //academic panel
++ CAN: advancing infrastructure data initiative // QII agenda // some potential circular economy stocktake 
++ GER: Data Initiative? // Quality Infra Investm Agenda? // Stocktake on Circular Economy and Infrastr // Infratech agenda // Smart cities is something could be valuable and linked to the current crisis (long term) // why divide advsory panel: Academic and private sector ... 
++ Ita: ita priorities: (continue asset class / QII) // tecnology 4 resilience // viability PPP model under COVID  // circular economy and infra & smart cities 
++ SAUDI: not overlap other organization and working groups // we have OECD task force that can serve as advisory board/platform 
++ Sing: multi-year persp
++ Spa: we miss a broader focus on climate change and green finance 
++ UK
++ US: fuel tax spending (long term) // QII // infratech (OK focus on early stage investment )
++ EBRD: outreach of the presentation. *I as an Asset class* remain critical (communication with investors very important) // ILM Afr? Program happy to see that advance // QII we are happy to support // data is an aspect that is really important (lot of exchange between MDBs on data on sust infra indicators) // infratech more important than ever (WBG work + OECD capture some potential ) // countrye & capab is one of the main constraints so gret to see work in Bra advance
+
++ MLF will be invited to EBRD to present at the Glbal Infrastructure Forum 
+
++ MLF response 
+
+
+## Other Business
+#### 4.1 Any other business
+
+## Meeting Finalisation
+#### 5.1 Next Meeting
+#### 5.2 Meeting summary and close
+

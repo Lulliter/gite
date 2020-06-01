@@ -1,0 +1,122 @@
+---
+title: "Contacts"
+author: ""
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    df_print: paged # default
+    keep_md: no
+    #theme: united
+    toc: no
+    toc_float: no
+---
+
+
+```{r global_options, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
+knitr::opts_chunk$set(
+  tidy = FALSE,
+  echo = TRUE,
+  cache = FALSE,
+  # results='asis',
+  message = FALSE,
+  warning = FALSE,
+  fig.show = "asis",
+  fig.align = "center",
+  fig.width = 8, fig.height = 8
+)
+
+if (!require("pacman")) install.packages("pacman")
+p_load(  here,
+   rio, readxl, # x importare da STATA
+  tidyr, lubridate, dplyr, stringr, skimr, 
+  janitor,# dataset manipulation
+  # tribble, # x fare tabelle a mano
+  ggplot2, # grafici
+  DT,  pander,  kableExtra # tabelle html
+
+)
+## Theme for graphs
+# cleanup <- theme(
+#   panel.grid.major = element_blank(),
+#   panel.grid.minor = element_blank(),
+#   panel.background = element_blank(),
+#   axis.line = element_line(colour = "black"),
+#   legend.key = element_rect(fill = "white"),
+#   text = element_text(size = 15)
+# )
+```
+
+
+ 
+```{r}
+contacts <- as.data.frame(readxl::read_excel(here::here( "reference","Contacts.xlsx")) )%>% 
+  janitor::clean_names()
+
+# ---- 1) using kableExtra
+contacts %>% 
+  select(-phone, -address, -country, -title, -mef_ref_person) %>% 
+kable(., align = "l")%>%
+  kable_styling(bootstrap_options = "striped", 
+                full_width = F, # x non occupare tutta la larghezza
+                position = "left") %>%
+  column_spec(column = 1, bold = T, color = "white", background = "#D7261E") %>%
+  column_spec(column = 3, bold = T, color = "blue" ) %>%
+  scroll_box(width = "1000px"
+             #, height = "500px"
+             ) %>%
+  footnote(., footnote_as_chunk = F,
+             escape = T,
+           general = "Clarifications:",
+           #number = c("Footnote 1; ", "Footnote 2; "),
+           alphabet = c("FWG: created at the Pittsburgh Summit in 2009, FWG is in charge of promoting and coordinating economic policies (monetary, budgetary and structural) to achieve strong, sustainable and balanced growth (Pittsburgh process;","Footnote B. "),
+           #symbol = c("Footnote Symbol 1; ", "Footnote Symbol 2")
+           )
+
+
+
+
+# ---- 2) using DT::datatable
+# contacts %>% 
+#    select(-phone, -address, -country, -title, -mef_ref_person) %>% 
+#    datatable(., 
+#          filter = 'top', 
+#          options = list(pageLength = 50, autoWidth = TRUE, 
+#                         escape = TRUE # argument so that it doesn't escape the HTML code.
+#          )) %>%
+#    formatStyle('name',  color = 'blue', backgroundColor = 'orange', fontWeight = 'bold')
+
+# # ---- 3) using pander::pandoc.table
+# caption <- "Description of indexes of NGO barriers {#tbl:ngo-barriers-index}"
+# 
+# contacts.table <- pandoc.table.return(contacts, keep.line.breaks = TRUE,
+# 											  round = 2,
+# 											  big.mark = ",",
+# 											  justify = "lllllllllllll", # OKKIO AL # DI COLONNE
+# 											  caption = caption, style = "multiline",
+# 											  split.table = Inf
+#                                        )
+# cat(contacts.table)
+```
+
+```{r SBAGLIATO, eval=FALSE, include=FALSE}
+contacts$link_cv_2 <- paste0("<a href='", 
+                             contacts$link_cv, #url
+                             "' target='_blank'>", 
+                             contacts$link_cv, #text
+                             "</a>")
+
+
+for(i in 1:nrow(contacts)){
+    #deal with links
+    if(!is.na(contacts$link_cv[i])){
+        contacts$link_cv = paste0("[Link](", contacts$link_cv[i], ")")} else {contacts$link_cv = ""}
+}
+
+# print(contacts)
+
+
+
+
+```
+
