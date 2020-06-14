@@ -1,0 +1,95 @@
+---
+title: "Nazzano"
+author: "Luisa M Mimmi"
+date: "6/14/2020"
+output: html_document
+---
+
+```{r global_options, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
+knitr::opts_chunk$set(
+  tidy = FALSE,
+  echo = TRUE,
+  cache = FALSE,
+  # results='asis',
+  message = FALSE,
+  warning = FALSE,
+  fig.show = "asis",
+  fig.align = "center",
+  fig.width = 8, fig.height = 8
+)
+
+if (!require("pacman")) install.packages("pacman")
+p_load( here,
+   rio, readxl, # x importare da STATA
+  tidyr, lubridate, dplyr, stringr, skimr, 
+  janitor,# dataset manipulation
+  # tribble, # x fare tabelle a mano
+  ggplot2, # grafici
+  #DT,  pander,  kableExtra ,# tabelle html,
+  sf, ggmap, osmdata
+
+)
+## Theme for graphs
+# cleanup <- theme(
+#   panel.grid.major = element_blank(),
+#   panel.grid.minor = element_blank(),
+#   panel.background = element_blank(),
+#   axis.line = element_line(colour = "black"),
+#   legend.key = element_rect(fill = "white"),
+#   text = element_text(size = 15)
+# )
+```
+
+
+```{r}
+nazz <- sf::st_read(here::here("reference","AnelloNazzano.kml"))
+plot(nazz)
+
+# 1) my wards'sf with its coordi box
+nazz_Google_bbox <- st_bbox(nazz)
+
+nazz_location <- c(lon = (nazz_Google_bbox["xmin"]+nazz_Google_bbox["xmax"])/2,
+                    lat = (nazz_Google_bbox["ymin"]+nazz_Google_bbox["ymax"])/2)
+
+# #2a) relative base map
+# terrain_map <- get_map(nazz_location, zoom = 11,  maptype = "terrain") # base  from google 
+# #2b) relative base map (MUCH BETTER WAY )
+# terrain_map2 <- ggmap::get_map(location = unname(st_bbox(wards_googleCRS)), maptype = "terrain")
+# 
+# # 3) together 
+# ggTERR2 = ggmap(terrain_map2) + 
+#   geom_sf(data = wards_googleCRS, # mapping = aes() , stat = "sf", position = "identity" 
+#            inherit.aes = FALSE,
+#             fill= "transparent", # OR 
+#             # alpha = .2, # HERE IT IS REFERRED TO THE BASE MAP
+#             colour = "firebrick4", # border 
+#             size = 0.3
+#           ) +
+#  
+#   labs(legend.text = NULL, x = NULL, y = NULL,
+#        title = "Slum Detection and Sampling in Dhaka",
+#        subtitle = "Wards in Dhaka Metropolitan Area (DMA)" ,
+#         caption  = paste("Sources: Gruebner et al., 2014; GISAT, 2017", "\n","Prepared on",  format(Sys.Date(), format="%d %B %Y"))) +
+#   coord_sf(xlim = c(ward_Google_bbox["xmin"] - .1 * (ward_Google_bbox["xmax"]-ward_Google_bbox["xmin"]),
+#                     ward_Google_bbox["xmax"] + .1 * (ward_Google_bbox["xmax"]-ward_Google_bbox["xmin"])),
+#            ylim = c(ward_Google_bbox["ymin"] - .1 * (ward_Google_bbox["ymax"]-ward_Google_bbox["ymin"]),
+#                     ward_Google_bbox["ymax"] + .1 * (ward_Google_bbox["ymax"]-ward_Google_bbox["ymin"])))
+# 
+# ggTERR2
+# 
+# ggsave(filename = "ggTERR2.pdf", plot = ggTERR2, device = "pdf", path = "./07_Maps_Outputs",
+#   scale = 1, #width = NA, height = NA, units = c("in", "cm", "mm"),
+#   dpi = 300, limitsize = T)
+# 
+# ggsave(filename = "ggTERR2.png", plot = ggTERR2, device = "png", path = "./07_Maps_Outputs",
+#   scale = 1, #width = NA, height = NA, units = c("in", "cm", "mm"),
+#   dpi = 400, limitsize = F)
+# # Philadelphia Lat 39.95258 and Lon is -75.16522
+# basemap <- ggmap::get_map(location=c(lon = -75.16522, lat = 39.95258), zoom=11, maptype = 'terrain-background', source = 'stamen')
+# 
+# ggmap(ph_basemap)
+```
+ 
+ <center>
+![AnelloNazzano.jpg](./AnelloNazzano.jpg "AnelloNazzano.jpg")
+</center>

@@ -12,7 +12,7 @@
 <meta name="author" content="" />
 
 
-<title>Contacts</title>
+<title>Gite Fatte</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -278,7 +278,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">G20 Journal</a>
+      <a class="navbar-brand" href="index.html">gite</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -290,17 +290,17 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
-  <a href="G20Journ.html">
+  <a href="Journ.html">
     <span class="fa fa-pencil-alt"></span>
      
     Journal
   </a>
 </li>
 <li>
-  <a href="Contacts.html">
+  <a href="Gite.html">
     <span class="fa fa-address-book"></span>
      
-    Contacts
+    Gite Fatte
   </a>
 </li>
 <li>
@@ -330,18 +330,18 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Contacts</h1>
-<h4 class="date">01 June, 2020</h4>
+<h1 class="title toc-ignore">Gite Fatte</h1>
+<h4 class="date">14 June, 2020</h4>
 
 </div>
 
 
-<pre class="r"><code>contacts &lt;- as.data.frame(readxl::read_excel(here::here( &quot;reference&quot;,&quot;Contacts.xlsx&quot;)) )%&gt;% 
+<pre class="r"><code>gite &lt;- as.data.frame(readxl::read_excel(here::here( &quot;reference&quot;,&quot;Gite.xlsx&quot;)) )%&gt;% 
   janitor::clean_names()
 
 # ---- 1) using kableExtra
-contacts %&gt;% 
-  select(-phone, -address, -country, -title, -mef_ref_person) %&gt;% 
+gite %&gt;% 
+  #select(-phone, -address, -country, -title, -mef_ref_person) %&gt;% 
 kable(., align = &quot;l&quot;)%&gt;%
   kable_styling(bootstrap_options = &quot;striped&quot;, 
                 full_width = F, # x non occupare tutta la larghezza
@@ -355,7 +355,7 @@ kable(., align = &quot;l&quot;)%&gt;%
              escape = T,
            general = &quot;Clarifications:&quot;,
            #number = c(&quot;Footnote 1; &quot;, &quot;Footnote 2; &quot;),
-           alphabet = c(&quot;FWG: created at the Pittsburgh Summit in 2009, FWG is in charge of promoting and coordinating economic policies (monetary, budgetary and structural) to achieve strong, sustainable and balanced growth (Pittsburgh process;&quot;,&quot;Footnote B. &quot;),
+           alphabet = c(&quot;**T** - Turistico: Passeggiata su strade sterrate e ampi sentieri con pendenze modeste, dislivelli inferiori a 300 m e sviluppo inferiore a 10 km. **E** - Escursionistico: Escursione semplice ma che richiede una buona forma fisica senza dover essere degli atleti. Percorsi su sterrate, ampi sentieri a scarsa pendenza ma anche sentieri di montagna più articolati e con pendenze leggermente maggiori. Dislivelli compresi fra 300 e 600 m. Sviluppo tra 10 e 15 km. **EE** - Escursionisti Esperti: Escursione per i più esperti e allenati. Rimangono escursioni con difficoltà tecniche comunque mai eccessive (eventuali brevi tratti esposti con catene, sentieri ripidi, tracce di sentiero, brevi tratti di roccette di primo grado, eventuale attraversamento di nevai) ma occorre avere una buona esperienza escursionistica e un buon allenamento. Pendenze a tratti sostenute. Dislivelli anche oltre i 600 m. Sviluppo anche oltre i 15 km. **EEA** - Escursionisti Esperti Attrezzati: Percorso attrezzato che richiede l&#39;utilizzo dell&#39;attrezzatura per via ferrata. **EAI** - Escursionisti in Ambiente Innevato: Itinerario in ambiente innevato che richiede l&#39;uso di racchette da neve, ma comunque su terreno senza grandi pendenze, con percorsi evidenti, e senza tratti esposti.&quot;),
            #symbol = c(&quot;Footnote Symbol 1; &quot;, &quot;Footnote Symbol 2&quot;)
            )</code></pre>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:1000px; ">
@@ -363,238 +363,86 @@ kable(., align = &quot;l&quot;)%&gt;%
 <thead>
 <tr>
 <th style="text-align:left;">
-pertinenza
+livello
 </th>
 <th style="text-align:left;">
-expertise
+catena
 </th>
 <th style="text-align:left;">
-name
+citta_provincia
 </th>
 <th style="text-align:left;">
-job_position
+nome
 </th>
 <th style="text-align:left;">
-organization
+rif_partenza
 </th>
 <th style="text-align:left;">
-email
+rif_arrivo
+</th>
+<th style="text-align:left;">
+durata
+</th>
+<th style="text-align:left;">
+dislivello
+</th>
+<th style="text-align:left;">
+note
+</th>
+<th style="text-align:left;">
+data
 </th>
 <th style="text-align:left;">
 link_web
 </th>
 <th style="text-align:left;">
-link_cv
+link_web2
+</th>
+<th style="text-align:left;">
+persona_di_rif
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;font-weight: bold;color: white !important;background-color: #D7261E !important;">
-Framework for Strong, Sustainable and Balanced Growth (FWG)a
+T
 </td>
 <td style="text-align:left;">
-productivity
+bassa Valle Staffora (PV)
 </td>
 <td style="text-align:left;font-weight: bold;color: blue !important;">
-Giuseppe Nicoletti
-</td>
-<td style="text-align:left;">
-Head of DivisionStructural Policy Analysis Division
-</td>
-<td style="text-align:left;">
-OECD
-</td>
-<td style="text-align:left;">
-<a href="mailto:Giuseppe.nicoletti@oecd.org" class="email">Giuseppe.nicoletti@oecd.org</a>
+Nazzano (PV)Anello di Nazzano
 </td>
 <td style="text-align:left;">
 NA
 </td>
 <td style="text-align:left;">
-<a href="http://www.oecd.org/economy/Giuseppe_Nicoletti_OECD_CV.pdf" class="uri">http://www.oecd.org/economy/Giuseppe_Nicoletti_OECD_CV.pdf</a>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: white !important;background-color: #D7261E !important;">
-Sistemi di Pagamento
+Parcheggio Nazzano (vicino ristorante)
 </td>
 <td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;font-weight: bold;color: blue !important;">
-?? Campiello
+(giro ad anello)
 </td>
 <td style="text-align:left;">
-NA
+2:13:59
 </td>
 <td style="text-align:left;">
-MEF
+215
 </td>
 <td style="text-align:left;">
 NA
 </td>
 <td style="text-align:left;">
-NA
+12 Giu 2020
 </td>
 <td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: white !important;background-color: #D7261E !important;">
-Infrastructure (IWG)
-</td>
-<td style="text-align:left;">
-QII ~ indicators
-</td>
-<td style="text-align:left;font-weight: bold;color: blue !important;">
-Wael Afifi
+<a href="https://www.avmtrekking.com/anello-di-nazzano-serale" class="uri">https://www.avmtrekking.com/anello-di-nazzano-serale</a>
 </td>
 <td style="text-align:left;">
 NA
 </td>
 <td style="text-align:left;">
-IFC
-</td>
-<td style="text-align:left;">
-<a href="mailto:wafifi@ifc.org" class="email">wafifi@ifc.org</a>
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: white !important;background-color: #D7261E !important;">
-Infrastructure (IWG)
-</td>
-<td style="text-align:left;">
-QII ~ indicators
-</td>
-<td style="text-align:left;font-weight: bold;color: blue !important;">
-Omar Choudry
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-IFC
-</td>
-<td style="text-align:left;">
-<a href="mailto:ochaudry@ifc.org" class="email">ochaudry@ifc.org</a>
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: white !important;background-color: #D7261E !important;">
-Framework for Strong, Sustainable and Balanced Growth (FWG)
-</td>
-<td style="text-align:left;">
-Macro / finanza / relaz internazionali
-</td>
-<td style="text-align:left;font-weight: bold;color: blue !important;">
-Franco Passacantando
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-LUISS / IAI / Bruegel
-</td>
-<td style="text-align:left;">
-<a href="mailto:fpassacantando@gmail.com" class="email">fpassacantando@gmail.com</a>
-</td>
-<td style="text-align:left;">
-<a href="http://docenti.luiss.it/passacantando/" class="uri">http://docenti.luiss.it/passacantando/</a>
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: white !important;background-color: #D7261E !important;">
-Infrastructure (IWG)
-</td>
-<td style="text-align:left;">
-infra indicators
-</td>
-<td style="text-align:left;font-weight: bold;color: blue !important;">
-Marie Lam-Frendo
-</td>
-<td style="text-align:left;">
-CEO
-</td>
-<td style="text-align:left;">
-GI Hub
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: white !important;background-color: #D7261E !important;">
-ITALY Gvnmt
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;font-weight: bold;color: blue !important;">
-Pietro Benassi
-</td>
-<td style="text-align:left;">
-consigliere diplomatico di Palazzo Chigi e sherpa G7/G20
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: white !important;background-color: #D7261E !important;">
-ITALY Gvnmt
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;font-weight: bold;color: blue !important;">
-Alessandro Rivera
-</td>
-<td style="text-align:left;">
-Direttore Generale del Tesoro
-</td>
-<td style="text-align:left;">
-MEF
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-<a href="http://www.mef.gov.it/ministero/struttura/capi-dipartimento/direttore-gen-tesoro.html" class="uri">http://www.mef.gov.it/ministero/struttura/capi-dipartimento/direttore-gen-tesoro.html</a>
-</td>
-<td style="text-align:left;">
-NA
+Pierre Greppi
 </td>
 </tr>
 </tbody>
@@ -612,18 +460,13 @@ NA
 </tr>
 <tr>
 <td style="padding: 0; border: 0;" colspan="100%">
-<sup>a</sup> FWG: created at the Pittsburgh Summit in 2009, FWG is in charge of promoting and coordinating economic policies (monetary, budgetary and structural) to achieve strong, sustainable and balanced growth (Pittsburgh process;
-</td>
-</tr>
-<tr>
-<td style="padding: 0; border: 0;" colspan="100%">
-<sup>b</sup> Footnote B.
+<sup>a</sup> <strong>T</strong> - Turistico: Passeggiata su strade sterrate e ampi sentieri con pendenze modeste, dislivelli inferiori a 300 m e sviluppo inferiore a 10 km. <strong>E</strong> - Escursionistico: Escursione semplice ma che richiede una buona forma fisica senza dover essere degli atleti. Percorsi su sterrate, ampi sentieri a scarsa pendenza ma anche sentieri di montagna più articolati e con pendenze leggermente maggiori. Dislivelli compresi fra 300 e 600 m. Sviluppo tra 10 e 15 km. <strong>EE</strong> - Escursionisti Esperti: Escursione per i più esperti e allenati. Rimangono escursioni con difficoltà tecniche comunque mai eccessive (eventuali brevi tratti esposti con catene, sentieri ripidi, tracce di sentiero, brevi tratti di roccette di primo grado, eventuale attraversamento di nevai) ma occorre avere una buona esperienza escursionistica e un buon allenamento. Pendenze a tratti sostenute. Dislivelli anche oltre i 600 m. Sviluppo anche oltre i 15 km. <strong>EEA</strong> - Escursionisti Esperti Attrezzati: Percorso attrezzato che richiede l’utilizzo dell’attrezzatura per via ferrata. <strong>EAI</strong> - Escursionisti in Ambiente Innevato: Itinerario in ambiente innevato che richiede l’uso di racchette da neve, ma comunque su terreno senza grandi pendenze, con percorsi evidenti, e senza tratti esposti.
 </td>
 </tr>
 </tfoot>
 </div>
 <pre class="r"><code># ---- 2) using DT::datatable
-# contacts %&gt;% 
+# gite %&gt;% 
 #    select(-phone, -address, -country, -title, -mef_ref_person) %&gt;% 
 #    datatable(., 
 #          filter = &#39;top&#39;, 
@@ -635,14 +478,14 @@ NA
 # # ---- 3) using pander::pandoc.table
 # caption &lt;- &quot;Description of indexes of NGO barriers {#tbl:ngo-barriers-index}&quot;
 # 
-# contacts.table &lt;- pandoc.table.return(contacts, keep.line.breaks = TRUE,
+# gite.table &lt;- pandoc.table.return(gite, keep.line.breaks = TRUE,
 #                                             round = 2,
 #                                             big.mark = &quot;,&quot;,
 #                                             justify = &quot;lllllllllllll&quot;, # OKKIO AL # DI COLONNE
 #                                             caption = caption, style = &quot;multiline&quot;,
 #                                             split.table = Inf
 #                                        )
-# cat(contacts.table)</code></pre>
+# cat(gite.table)</code></pre>
 
 <p>Copyright &copy; 2020 Luisa M. Mimmi</p>
 

@@ -62,6 +62,12 @@ colorize <- function(x, color) {
 
 # `r colorize("some words in red", "red")`
 ```
+
+
 # TO DO
 
+## Monte Crocione, Monte di Tremezzo, Monte Galbiga e Monte di Lenno
+Anello che parte dall'Abbazia dell'Acquafredda e permette di vedere anche il Monastero di San Benedetto
 
+[giro 7:30 h](https://www.hikr.org/tour/post93670.html)
+[giro 4,5 h](http://cailavenomombello.it/wp-content/uploads/2017/01/scheda-anello-monte-tremezzo.pdf)

@@ -1,5 +1,5 @@
 ---
-title: "Contacts"
+title: "Gite Fatte"
 author: ""
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
@@ -50,12 +50,12 @@ p_load(  here,
 
  
 ```{r}
-contacts <- as.data.frame(readxl::read_excel(here::here( "reference","Contacts.xlsx")) )%>% 
+gite <- as.data.frame(readxl::read_excel(here::here( "reference","Gite.xlsx")) )%>% 
   janitor::clean_names()
 
 # ---- 1) using kableExtra
-contacts %>% 
-  select(-phone, -address, -country, -title, -mef_ref_person) %>% 
+gite %>% 
+  #select(-phone, -address, -country, -title, -mef_ref_person) %>% 
 kable(., align = "l")%>%
   kable_styling(bootstrap_options = "striped", 
                 full_width = F, # x non occupare tutta la larghezza
@@ -69,7 +69,7 @@ kable(., align = "l")%>%
              escape = T,
            general = "Clarifications:",
            #number = c("Footnote 1; ", "Footnote 2; "),
-           alphabet = c("FWG: created at the Pittsburgh Summit in 2009, FWG is in charge of promoting and coordinating economic policies (monetary, budgetary and structural) to achieve strong, sustainable and balanced growth (Pittsburgh process;","Footnote B. "),
+           alphabet = c("**T** - Turistico: Passeggiata su strade sterrate e ampi sentieri con pendenze modeste, dislivelli inferiori a 300 m e sviluppo inferiore a 10 km. **E** - Escursionistico: Escursione semplice ma che richiede una buona forma fisica senza dover essere degli atleti. Percorsi su sterrate, ampi sentieri a scarsa pendenza ma anche sentieri di montagna più articolati e con pendenze leggermente maggiori. Dislivelli compresi fra 300 e 600 m. Sviluppo tra 10 e 15 km. **EE** - Escursionisti Esperti: Escursione per i più esperti e allenati. Rimangono escursioni con difficoltà tecniche comunque mai eccessive (eventuali brevi tratti esposti con catene, sentieri ripidi, tracce di sentiero, brevi tratti di roccette di primo grado, eventuale attraversamento di nevai) ma occorre avere una buona esperienza escursionistica e un buon allenamento. Pendenze a tratti sostenute. Dislivelli anche oltre i 600 m. Sviluppo anche oltre i 15 km. **EEA** - Escursionisti Esperti Attrezzati: Percorso attrezzato che richiede l'utilizzo dell'attrezzatura per via ferrata. **EAI** - Escursionisti in Ambiente Innevato: Itinerario in ambiente innevato che richiede l'uso di racchette da neve, ma comunque su terreno senza grandi pendenze, con percorsi evidenti, e senza tratti esposti."),
            #symbol = c("Footnote Symbol 1; ", "Footnote Symbol 2")
            )
 
@@ -77,7 +77,7 @@ kable(., align = "l")%>%
 
 
 # ---- 2) using DT::datatable
-# contacts %>% 
+# gite %>% 
 #    select(-phone, -address, -country, -title, -mef_ref_person) %>% 
 #    datatable(., 
 #          filter = 'top', 
@@ -89,31 +89,31 @@ kable(., align = "l")%>%
 # # ---- 3) using pander::pandoc.table
 # caption <- "Description of indexes of NGO barriers {#tbl:ngo-barriers-index}"
 # 
-# contacts.table <- pandoc.table.return(contacts, keep.line.breaks = TRUE,
+# gite.table <- pandoc.table.return(gite, keep.line.breaks = TRUE,
 # 											  round = 2,
 # 											  big.mark = ",",
 # 											  justify = "lllllllllllll", # OKKIO AL # DI COLONNE
 # 											  caption = caption, style = "multiline",
 # 											  split.table = Inf
 #                                        )
-# cat(contacts.table)
+# cat(gite.table)
 ```
 
 ```{r SBAGLIATO, eval=FALSE, include=FALSE}
-contacts$link_cv_2 <- paste0("<a href='", 
-                             contacts$link_cv, #url
+gite$link_cv_2 <- paste0("<a href='", 
+                             gite$link_cv, #url
                              "' target='_blank'>", 
-                             contacts$link_cv, #text
+                             gite$link_cv, #text
                              "</a>")
 
 
-for(i in 1:nrow(contacts)){
+for(i in 1:nrow(gite)){
     #deal with links
-    if(!is.na(contacts$link_cv[i])){
-        contacts$link_cv = paste0("[Link](", contacts$link_cv[i], ")")} else {contacts$link_cv = ""}
+    if(!is.na(gite$link_cv[i])){
+        gite$link_cv = paste0("[Link](", gite$link_cv[i], ")")} else {gite$link_cv = ""}
 }
 
-# print(contacts)
+# print(gite)
 
 
 
