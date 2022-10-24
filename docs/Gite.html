@@ -9,17 +9,26 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="" />
 
 
 <title>Gite Fatte</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
@@ -27,15 +36,20 @@
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -48,32 +62,8 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
+
 
 <link rel="stylesheet" href="_styles.css" type="text/css" />
 
@@ -84,10 +74,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -104,40 +90,16 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -165,7 +127,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -177,7 +139,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -187,11 +149,28 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.parent().addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -203,7 +182,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -273,7 +251,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -318,11 +296,11 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
 <li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
 <li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
 </ul>
@@ -331,7 +309,8 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Gite Fatte</h1>
-<h4 class="date">14 June, 2020</h4>
+<h4 class="author"></h4>
+<h4 class="date">24 October, 2022</h4>
 
 </div>
 
@@ -342,15 +321,16 @@ $(document).ready(function () {
 # ---- 1) using kableExtra
 gite %&gt;% 
   #select(-phone, -address, -country, -title, -mef_ref_person) %&gt;% 
-kable(., align = &quot;l&quot;)%&gt;%
+kable(., align = &quot;l&quot;, escape = F#, format = &quot;latex&quot;
+      ) %&gt;%
   kable_styling(bootstrap_options = &quot;striped&quot;, 
                 full_width = F, # x non occupare tutta la larghezza
                 position = &quot;left&quot;) %&gt;%
   column_spec(column = 1, bold = T, color = &quot;white&quot;, background = &quot;#D7261E&quot;) %&gt;%
-  column_spec(column = 3, bold = T, color = &quot;blue&quot; ) %&gt;%
-  scroll_box(width = &quot;1000px&quot;
+  column_spec(column = 3, bold = T, color = &quot;blue&quot;) %&gt;%
+  #scroll_box(width = &quot;1000px&quot;
              #, height = &quot;500px&quot;
-             ) %&gt;%
+             #) %&gt;%
   footnote(., footnote_as_chunk = F,
              escape = T,
            general = &quot;Clarifications:&quot;,
@@ -358,8 +338,7 @@ kable(., align = &quot;l&quot;)%&gt;%
            alphabet = c(&quot;**T** - Turistico: Passeggiata su strade sterrate e ampi sentieri con pendenze modeste, dislivelli inferiori a 300 m e sviluppo inferiore a 10 km. **E** - Escursionistico: Escursione semplice ma che richiede una buona forma fisica senza dover essere degli atleti. Percorsi su sterrate, ampi sentieri a scarsa pendenza ma anche sentieri di montagna più articolati e con pendenze leggermente maggiori. Dislivelli compresi fra 300 e 600 m. Sviluppo tra 10 e 15 km. **EE** - Escursionisti Esperti: Escursione per i più esperti e allenati. Rimangono escursioni con difficoltà tecniche comunque mai eccessive (eventuali brevi tratti esposti con catene, sentieri ripidi, tracce di sentiero, brevi tratti di roccette di primo grado, eventuale attraversamento di nevai) ma occorre avere una buona esperienza escursionistica e un buon allenamento. Pendenze a tratti sostenute. Dislivelli anche oltre i 600 m. Sviluppo anche oltre i 15 km. **EEA** - Escursionisti Esperti Attrezzati: Percorso attrezzato che richiede l&#39;utilizzo dell&#39;attrezzatura per via ferrata. **EAI** - Escursionisti in Ambiente Innevato: Itinerario in ambiente innevato che richiede l&#39;uso di racchette da neve, ma comunque su terreno senza grandi pendenze, con percorsi evidenti, e senza tratti esposti.&quot;),
            #symbol = c(&quot;Footnote Symbol 1; &quot;, &quot;Footnote Symbol 2&quot;)
            )</code></pre>
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:1000px; ">
-<table class="table table-striped" style="width: auto !important; ">
+<table class="table table-striped" style="width: auto !important; border-bottom: 0;">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -436,35 +415,54 @@ NA
 12 Giu 2020
 </td>
 <td style="text-align:left;">
-<a href="https://www.avmtrekking.com/anello-di-nazzano-serale" class="uri">https://www.avmtrekking.com/anello-di-nazzano-serale</a>
+<a href="https://www.avmtrekking.com/anello-di-nazzano-serale">
+Programma </a>
 </td>
 <td style="text-align:left;">
-NA
+<img src="reference/AnelloNazzano.jpg">
 </td>
 <td style="text-align:left;">
 Pierre Greppi
 </td>
 </tr>
 </tbody>
-</table>
 <tfoot>
 <tr>
-<td style="padding: 0; border: 0;" colspan="100%">
+<td style="padding: 0; " colspan="100%">
 <span style="font-style: italic;">Note: </span>
 </td>
 </tr>
 <tr>
-<td style="padding: 0; border: 0;" colspan="100%">
+<td style="padding: 0; " colspan="100%">
 <sup></sup> Clarifications:
 </td>
 </tr>
 <tr>
-<td style="padding: 0; border: 0;" colspan="100%">
-<sup>a</sup> <strong>T</strong> - Turistico: Passeggiata su strade sterrate e ampi sentieri con pendenze modeste, dislivelli inferiori a 300 m e sviluppo inferiore a 10 km. <strong>E</strong> - Escursionistico: Escursione semplice ma che richiede una buona forma fisica senza dover essere degli atleti. Percorsi su sterrate, ampi sentieri a scarsa pendenza ma anche sentieri di montagna più articolati e con pendenze leggermente maggiori. Dislivelli compresi fra 300 e 600 m. Sviluppo tra 10 e 15 km. <strong>EE</strong> - Escursionisti Esperti: Escursione per i più esperti e allenati. Rimangono escursioni con difficoltà tecniche comunque mai eccessive (eventuali brevi tratti esposti con catene, sentieri ripidi, tracce di sentiero, brevi tratti di roccette di primo grado, eventuale attraversamento di nevai) ma occorre avere una buona esperienza escursionistica e un buon allenamento. Pendenze a tratti sostenute. Dislivelli anche oltre i 600 m. Sviluppo anche oltre i 15 km. <strong>EEA</strong> - Escursionisti Esperti Attrezzati: Percorso attrezzato che richiede l’utilizzo dell’attrezzatura per via ferrata. <strong>EAI</strong> - Escursionisti in Ambiente Innevato: Itinerario in ambiente innevato che richiede l’uso di racchette da neve, ma comunque su terreno senza grandi pendenze, con percorsi evidenti, e senza tratti esposti.
+<td style="padding: 0; " colspan="100%">
+<sup>a</sup> <strong>T</strong> - Turistico: Passeggiata su strade
+sterrate e ampi sentieri con pendenze modeste, dislivelli inferiori a
+300 m e sviluppo inferiore a 10 km. <strong>E</strong> -
+Escursionistico: Escursione semplice ma che richiede una buona forma
+fisica senza dover essere degli atleti. Percorsi su sterrate, ampi
+sentieri a scarsa pendenza ma anche sentieri di montagna più articolati
+e con pendenze leggermente maggiori. Dislivelli compresi fra 300 e 600
+m. Sviluppo tra 10 e 15 km. <strong>EE</strong> - Escursionisti Esperti:
+Escursione per i più esperti e allenati. Rimangono escursioni con
+difficoltà tecniche comunque mai eccessive (eventuali brevi tratti
+esposti con catene, sentieri ripidi, tracce di sentiero, brevi tratti di
+roccette di primo grado, eventuale attraversamento di nevai) ma occorre
+avere una buona esperienza escursionistica e un buon allenamento.
+Pendenze a tratti sostenute. Dislivelli anche oltre i 600 m. Sviluppo
+anche oltre i 15 km. <strong>EEA</strong> - Escursionisti Esperti
+Attrezzati: Percorso attrezzato che richiede l’utilizzo
+dell’attrezzatura per via ferrata. <strong>EAI</strong> - Escursionisti
+in Ambiente Innevato: Itinerario in ambiente innevato che richiede l’uso
+di racchette da neve, ma comunque su terreno senza grandi pendenze, con
+percorsi evidenti, e senza tratti esposti.
 </td>
 </tr>
 </tfoot>
-</div>
+</table>
 <pre class="r"><code># ---- 2) using DT::datatable
 # gite %&gt;% 
 #    select(-phone, -address, -country, -title, -mef_ref_person) %&gt;% 
@@ -497,7 +495,7 @@ Pierre Greppi
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -515,7 +513,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>

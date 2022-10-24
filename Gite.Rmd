@@ -56,15 +56,16 @@ gite <- as.data.frame(readxl::read_excel(here::here( "reference","Gite.xlsx")) )
 # ---- 1) using kableExtra
 gite %>% 
   #select(-phone, -address, -country, -title, -mef_ref_person) %>% 
-kable(., align = "l")%>%
+kable(., align = "l", escape = F#, format = "latex"
+      ) %>%
   kable_styling(bootstrap_options = "striped", 
                 full_width = F, # x non occupare tutta la larghezza
                 position = "left") %>%
   column_spec(column = 1, bold = T, color = "white", background = "#D7261E") %>%
-  column_spec(column = 3, bold = T, color = "blue" ) %>%
-  scroll_box(width = "1000px"
+  column_spec(column = 3, bold = T, color = "blue") %>%
+  #scroll_box(width = "1000px"
              #, height = "500px"
-             ) %>%
+             #) %>%
   footnote(., footnote_as_chunk = F,
              escape = T,
            general = "Clarifications:",

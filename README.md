@@ -1,12 +1,18 @@
-# CHANGING MIND!!!!!
+# HIKES list
 
-[in reality this is now a private repo -- too much risk of confidential breach -- so public website does not apply anymore]
+A simple website for listing local hikes 
 
+
+# TO DO 
+
++ Figure out the best way to have a link in the table 
++ Write a function to progressively add gita to `./reference/Gite.xlsx` file
++ Maybe this should be a `.csv` file? 
+
+## NOTES
 Info on this minimal rmarkdown-site website is 
 [here - yihui's)](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html) or 
 [here - Garret's)](https://garrettgman.github.io/rmarkdown/rmarkdown_websites.html) 
-
-## Important
 
 **R Markdown websites** can be hosted using GitHub Pages in 2 ways 
 
