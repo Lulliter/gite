@@ -1,0 +1,112 @@
+---
+title: "Gite da fare"
+author: ""
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    df_print: paged # default
+    keep_md: no
+    #theme: united
+    toc: no
+    toc_float: no
+---
+
+
+```{r global_options, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
+knitr::opts_chunk$set(
+  tidy = FALSE,
+  echo = TRUE,
+  cache = FALSE,
+  # results='asis',
+  message = FALSE,
+  warning = FALSE,
+  fig.show = "asis",
+  fig.align = "center",
+  fig.width = 8, fig.height = 8
+)
+
+if (!require("pacman")) install.packages("pacman")
+p_load(  here,
+   rio, readxl, # x importare da STATA
+  tidyr, lubridate, dplyr, stringr, skimr, 
+  janitor,# dataset manipulation
+  # tribble, # x fare tabelle a mano
+  ggplot2, # grafici
+  DT,  pander,  kableExtra # tabelle html
+
+)
+## Theme for graphs
+# cleanup <- theme(
+#   panel.grid.major = element_blank(),
+#   panel.grid.minor = element_blank(),
+#   panel.background = element_blank(),
+#   axis.line = element_line(colour = "black"),
+#   legend.key = element_rect(fill = "white"),
+#   text = element_text(size = 15)
+# )
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# a custom R function to insert the correct syntax depending on the output format using the is_latex_output() and is_html_output() functions in knitr as follows:
+colorize <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color, 
+      x)
+  } else x
+}
+
+# `r colorize("some words in red", "red")`
+```
+
+
+# TO DO
+
+
+## Varie gite in Oltrepo Pavese 
+
+[sito sentieri](https://www.cmop.movimentolento.it/it/)
+[pro-loco del brallo](http://www.probrallo.net/brallo/index.php?option=com_content&view=article&id=45:sentieri-al-brallo&catid=14:sentieri-e-natura&Itemid=19)
+
++ BRALLO: Sentiero delle Farfalle di Corbesassi, un percorso della lunghezza di 1,5 km;
++ passeggiata nel Bosco dei Castagni Secolari (circa 2 km) e arrivo nei pressi del mulino con eventuale visita al Museo dei Ricordi (a cura del Gruppo Alpini).
++ passeggiata dello gnocco alla Montagnola
+
++ DOVE:  Brallo - Lesima A/R
+    + Tempo  5 ore 19 minut
+    + Distanza 16,36 km
+    + Dislivello positivo 1.116 m 
+    + [sito]( )
+    
++ DOVE: Cima Colletta Monte Lesima 
+   + Tempo  7 ore 56 minuti
+   + Distanza 20,64 km
+   + Dislivello positivo  1.058 m 
+   + [sito](https://it.wikiloc.com/percorsi-escursionismo/cima-colletta-monte-lesima-1951266)
+   
++ DOVE: Brallo-Bocco-Sella La Colla-Piani del Lesima-M.te Lesima-Passo Giovà-Capanne di Cosola
+   + Tempo:   3 ore 38 minuti
+   + Distanza:   19,15 km 
+   + Dislivello positivo:  1.358 m 
+   + [sito](https://it.wikiloc.com/percorsi-escursionismo/2013-08-17-brallo-bocco-sella-la-colla-piani-del-lesima-m-te-lesima-passo-giova-capanne-di-cosola-5062579)
+   
++ DOVE: pietra-parcellara-e-pietra-perduca/
+   + Tempo:    5-6 h (anello)
+   + Distanza:   
+   + Dislivello positivo:   800
+   + Livello E alla Parcellara EE alla 
+   + [sito](https://www.cristianriva.it/pietra-parcellara-e-pietra-perduca/)   
+   
+   
+## Monte Crocione, Monte di Tremezzo, Monte Galbiga e Monte di Lenno
+Anello che parte dall'Abbazia dell'Acquafredda e permette di vedere anche il Monastero di San Benedetto
+
+[giro 7:30 h](https://www.hikr.org/tour/post93670.html)
+[giro 4,5 h](http://cailavenomombello.it/wp-content/uploads/2017/01/scheda-anello-monte-tremezzo.pdf)
+
+
+
