@@ -70,17 +70,19 @@ gite2 <- tibble(
     data            = c("12 Giu 2020", "12 Giu 2023",  NA, NA),
     link_web        = c("https://www.avmtrekking.com/anello-di-nazzano-serale",
                         "https://www.komoot.com/it-it/tour/1093134865", NA, NA), 
-    link_pic_comp       = c("/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg", 
-                       "/Users/luisamimmi/Github/gite/reference/AnelloMontalto.png", NA, NA ),
-    link_pic       = c(here("reference", "AnelloNazzano.jpg"), 
+    # link_pic_comp       = c("/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg", 
+    #                    "/Users/luisamimmi/Github/gite/reference/AnelloMontalto.png", NA, NA ),
+    ref_pic       = c(here("reference", "AnelloNazzano.jpg"), 
                        here("reference", "AnelloMontalto.png"), NA, NA ),
+    src_pic       = c("docs/reference/AnelloNazzano.jpg",
+                      "docs/reference/AnelloMontalto.png", NA, NA  ),
     persona_di_rif  = c("Pierre Greppi", NA, NA, NA)
 ) 
 
 ```
 
 # gite_gt_purr
-
+![](docs/reference/AnelloMontalto.png)
 
 <!-- [Rif {purrr}+{htmltools}](https://community.rstudio.com/t/create-interactive-links-in-gt-table-in-rmarkdown/70266/2) -->
 <!-- [Rif](https://stackoverflow.com/questions/3139811/how-to-link-an-image-and-target-a-new-window) -->
@@ -88,13 +90,14 @@ gite2 <- tibble(
 ```{r gite_gt_purr}
 
 # --- Function transforming COLUMN WITH LINK (PIC) 
-f_make_piclink = function(mysrc) {
+f_make_piclink = function(ref_pic, src_pic) {
   paste0(
 # Create `img` element --> set `src` attribute --> give `href` property to anchor      
       # set the `target` attribute on the anchor element and set it to _blank. (open in new tab)
-      '<a href="',mysrc,'" target="_blank"><img width="50px" height="50px" border="0" align="center"  src="',mysrc,'" alt=""/> </a>')
+      '<a href="',ref_pic,'" target="_blank"><img width="50px" height="50px" border="0" align="center"  src="',src_pic,'" alt=""/> </a>')
 }
-#f_make_piclink ("/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg") 
+
+#f_make_piclink ("/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg","docs/reference/AnelloNazzano.jpg") 
 
 # f_make_piclink2 = function(mysrc) {
 #   paste0('<a href="',mysrc,
@@ -112,7 +115,7 @@ f_make_piclink = function(mysrc) {
 
 # using html
 gite2 %>% 
-    select(-note, -persona_di_rif, -link_pic_comp) %>% 
+    select(-note, -persona_di_rif) %>% 
     mutate(
 # ---- COLUMN WITH LINK   {purrr}+{htmltools}     
         # wrap <a> around 
@@ -120,12 +123,19 @@ gite2 %>%
         link_web = map(link_web, ~ htmltools::a(href = .x,  "web")),
         # gt::html tells gt to deal with the text as html content.
         link_web = map(link_web, ~ gt::html(as.character(.x)))) %>%
-
-gt()  %>% 
 # ---- COLUMN WITH LINK (PIC)       
-    # -- SOL b) OK 
-    # set colum format  4 PIC      
-    gt::fmt (columns = 'link_pic', fns = f_make_piclink) 
+    mutate(
+        link_pic = f_make_piclink(ref_pic, src_pic),
+        # gt::html tells gt to deal with the text as html content.
+        link_pic = map(link_pic, ~ gt::html(as.character(.x)))
+    ) %>% 
+        select(-ref_pic, -src_pic) %>% 
+
+gt() 
+
+    # # -- SOL b) OK 
+    # # set colum format  4 PIC      
+    # gt::fmt (columns = c('ref_pic','src_pic'), fns = f_make_piclink) 
 
 ```
 
@@ -160,7 +170,7 @@ gt() %>%
   ) %>%
   # set colum format  4 PIC      
      gt::fmt (
-    columns = 'link_pic',
+    columns = c( ),
     fns = f_make_piclink
   ) 
 
