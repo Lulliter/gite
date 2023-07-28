@@ -72,10 +72,10 @@ gite2 <- tibble(
                         "https://www.komoot.com/it-it/tour/1093134865", NA, NA), 
     # link_pic_comp       = c("/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg", 
     #                    "/Users/luisamimmi/Github/gite/reference/AnelloMontalto.png", NA, NA ),
-    ref_pic       = c(here("reference", "AnelloNazzano.jpg"), 
+    src_pic       = c(here("reference", "AnelloNazzano.jpg"), 
                        here("reference", "AnelloMontalto.png"), NA, NA ),
-    src_pic       = c("docs/reference/AnelloNazzano.jpg",
-                      "docs/reference/AnelloMontalto.png", NA, NA  ),
+    ref_pic       = c("reference/AnelloNazzano.jpg",
+                      "reference/AnelloMontalto.png", NA, NA  ),
     persona_di_rif  = c("Pierre Greppi", NA, NA, NA)
 ) 
 
@@ -94,7 +94,7 @@ f_make_piclink = function(ref_pic, src_pic) {
   paste0(
 # Create `img` element --> set `src` attribute --> give `href` property to anchor      
       # set the `target` attribute on the anchor element and set it to _blank. (open in new tab)
-      '<a href="',src_pic,'" target="_blank"><img width="50px" height="50px" border="0" align="center"  src="',ref_pic,'" alt=""/> </a>')
+      '<a href="',ref_pic,'" target="_blank"><img width="50px" height="50px" border="0" align="center"  src="',src_pic,'" alt=""/> </a>')
 }
 
 #f_make_piclink ("/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg","docs/reference/AnelloNazzano.jpg") 
