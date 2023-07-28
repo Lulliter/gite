@@ -31,7 +31,7 @@ if [ $# -eq 1 ]
 fi
 # ... Commit Those changes.
 git commit -m "$msg"
-		# git commit -m "gt in Fatte con pic link DOCS/short path)"
+		# git commit -m "gt in Fatte con pic 2 link )"
 		# git commit -m " output in ./docs/"
 
 # Push source and build repos.
