@@ -70,8 +70,10 @@ gite2 <- tibble(
     data            = c("12 Giu 2020", "12 Giu 2023",  NA, NA),
     link_web        = c("https://www.avmtrekking.com/anello-di-nazzano-serale",
                         "https://www.komoot.com/it-it/tour/1093134865", NA, NA), 
-    link_pic       = c("/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg", 
+    link_pic_comp       = c("/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg", 
                        "/Users/luisamimmi/Github/gite/reference/AnelloMontalto.png", NA, NA ),
+    link_pic       = c("/reference/AnelloNazzano.jpg", 
+                       "/reference/AnelloMontalto.png", NA, NA ),
     persona_di_rif  = c("Pierre Greppi", NA, NA, NA)
 ) 
 
@@ -92,7 +94,7 @@ f_make_piclink = function(mysrc) {
       # set the `target` attribute on the anchor element and set it to _blank. (open in new tab)
       '<a href="',mysrc,'" target="_blank"><img width="50px" height="50px" border="0" align="center"  src="',mysrc,'" alt=""/> </a>')
 }
-f_make_piclink ("/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg") 
+#f_make_piclink ("/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg") 
 
 # f_make_piclink2 = function(mysrc) {
 #   paste0('<a href="',mysrc,

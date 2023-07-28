@@ -420,10 +420,12 @@ $(document).ready(function () {
 <span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>    <span class="at">data            =</span> <span class="fu">c</span>(<span class="st">&quot;12 Giu 2020&quot;</span>, <span class="st">&quot;12 Giu 2023&quot;</span>,  <span class="cn">NA</span>, <span class="cn">NA</span>),</span>
 <span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>    <span class="at">link_web        =</span> <span class="fu">c</span>(<span class="st">&quot;https://www.avmtrekking.com/anello-di-nazzano-serale&quot;</span>,</span>
 <span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a>                        <span class="st">&quot;https://www.komoot.com/it-it/tour/1093134865&quot;</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), </span>
-<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a>    <span class="at">link_pic       =</span> <span class="fu">c</span>(<span class="st">&quot;/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg&quot;</span>, </span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a>    <span class="at">link_pic_comp       =</span> <span class="fu">c</span>(<span class="st">&quot;/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg&quot;</span>, </span>
 <span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a>                       <span class="st">&quot;/Users/luisamimmi/Github/gite/reference/AnelloMontalto.png&quot;</span>, <span class="cn">NA</span>, <span class="cn">NA</span> ),</span>
-<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a>    <span class="at">persona_di_rif  =</span> <span class="fu">c</span>(<span class="st">&quot;Pierre Greppi&quot;</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>)</span>
-<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a>) </span></code></pre></div>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a>    <span class="at">link_pic       =</span> <span class="fu">c</span>(<span class="st">&quot;/reference/AnelloNazzano.jpg&quot;</span>, </span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a>                       <span class="st">&quot;/reference/AnelloMontalto.png&quot;</span>, <span class="cn">NA</span>, <span class="cn">NA</span> ),</span>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a>    <span class="at">persona_di_rif  =</span> <span class="fu">c</span>(<span class="st">&quot;Pierre Greppi&quot;</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a>) </span></code></pre></div>
 <div id="gite_gt_purr" class="section level1">
 <h1>gite_gt_purr</h1>
 <!-- [Rif {purrr}+{htmltools}](https://community.rstudio.com/t/create-interactive-links-in-gt-table-in-rmarkdown/70266/2) -->
@@ -435,55 +437,55 @@ $(document).ready(function () {
 <span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>      <span class="co"># set the `target` attribute on the anchor element and set it to _blank. (open in new tab)</span></span>
 <span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>      <span class="st">&#39;&lt;a href=&quot;&#39;</span>,mysrc,<span class="st">&#39;&quot; target=&quot;_blank&quot;&gt;&lt;img width=&quot;50px&quot; height=&quot;50px&quot; border=&quot;0&quot; align=&quot;center&quot;  src=&quot;&#39;</span>,mysrc,<span class="st">&#39;&quot; alt=&quot;&quot;/&gt; &lt;/a&gt;&#39;</span>)</span>
 <span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>}</span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="fu">f_make_piclink</span> (<span class="st">&quot;/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg&quot;</span>) </span></code></pre></div>
-<pre><code>## [1] &quot;&lt;a href=\&quot;/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg\&quot; target=\&quot;_blank\&quot;&gt;&lt;img width=\&quot;50px\&quot; height=\&quot;50px\&quot; border=\&quot;0\&quot; align=\&quot;center\&quot;  src=\&quot;/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg\&quot; alt=\&quot;\&quot;/&gt; &lt;/a&gt;&quot;</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># f_make_piclink2 = function(mysrc) {</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#   paste0(&#39;&lt;a href=&quot;&#39;,mysrc,</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#         &#39;&quot; alt=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;display: inline-block; width: 50px; height; 50px; background-image: url(&quot;&#39;, mysrc, &#39;&quot;)/&gt; &lt;/a&gt;&#39;)</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co"># }</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co"># f_make_piclink2 (&quot;/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg&quot;) </span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co"># &lt;a href=&quot;Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img width=&quot;220&quot; height=&quot;250&quot; border=&quot;0&quot; align=&quot;center&quot;  src=&quot;Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg&quot; alt=&quot;&quot;/&gt;</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#   &lt;/a&gt;</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co"># https://stackoverflow.com/questions/3139811/how-to-link-an-image-and-target-a-new-window</span></span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co"># using html</span></span>
-<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>gite2 <span class="sc">%&gt;%</span> </span>
-<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>note, <span class="sc">-</span>persona_di_rif) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co"># ---- COLUMN WITH LINK   {purrr}+{htmltools}     </span></span>
-<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>        <span class="co"># wrap &lt;a&gt; around </span></span>
-<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>        <span class="co"># &lt;a href=&#39;https://www.avmtrekking.com/anello-di-nazzano-serale&#39;&gt; Programma &lt;/a&gt;</span></span>
-<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a>        <span class="at">link_web =</span> <span class="fu">map</span>(link_web, <span class="sc">~</span> htmltools<span class="sc">::</span><span class="fu">a</span>(<span class="at">href =</span> .x,  <span class="st">&quot;web&quot;</span>)),</span>
-<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a>        <span class="co"># gt::html tells gt to deal with the text as html content.</span></span>
-<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a>        <span class="at">link_web =</span> <span class="fu">map</span>(link_web, <span class="sc">~</span> gt<span class="sc">::</span><span class="fu">html</span>(<span class="fu">as.character</span>(.x)))) <span class="sc">%&gt;%</span></span>
-<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="fu">gt</span>()  <span class="sc">%&gt;%</span> </span>
-<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="co"># ---- COLUMN WITH LINK (PIC)       </span></span>
-<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a>    <span class="co"># -- SOL b) OK </span></span>
-<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a>    <span class="co"># set colum format  4 PIC      </span></span>
-<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">fmt</span> (<span class="at">columns =</span> <span class="st">&#39;link_pic&#39;</span>, <span class="at">fns =</span> f_make_piclink) </span></code></pre></div>
-<div id="vwbhfzyjlm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vwbhfzyjlm table {
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#f_make_piclink (&quot;/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg&quot;) </span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co"># f_make_piclink2 = function(mysrc) {</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#   paste0(&#39;&lt;a href=&quot;&#39;,mysrc,</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#         &#39;&quot; alt=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;display: inline-block; width: 50px; height; 50px; background-image: url(&quot;&#39;, mysrc, &#39;&quot;)/&gt; &lt;/a&gt;&#39;)</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co"># }</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co"># f_make_piclink2 (&quot;/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg&quot;) </span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co"># &lt;a href=&quot;Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img width=&quot;220&quot; height=&quot;250&quot; border=&quot;0&quot; align=&quot;center&quot;  src=&quot;Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg&quot; alt=&quot;&quot;/&gt;</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#   &lt;/a&gt;</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co"># https://stackoverflow.com/questions/3139811/how-to-link-an-image-and-target-a-new-window</span></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co"># using html</span></span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a>gite2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>note, <span class="sc">-</span>persona_di_rif) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a><span class="co"># ---- COLUMN WITH LINK   {purrr}+{htmltools}     </span></span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a>        <span class="co"># wrap &lt;a&gt; around </span></span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a>        <span class="co"># &lt;a href=&#39;https://www.avmtrekking.com/anello-di-nazzano-serale&#39;&gt; Programma &lt;/a&gt;</span></span>
+<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a>        <span class="at">link_web =</span> <span class="fu">map</span>(link_web, <span class="sc">~</span> htmltools<span class="sc">::</span><span class="fu">a</span>(<span class="at">href =</span> .x,  <span class="st">&quot;web&quot;</span>)),</span>
+<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a>        <span class="co"># gt::html tells gt to deal with the text as html content.</span></span>
+<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a>        <span class="at">link_web =</span> <span class="fu">map</span>(link_web, <span class="sc">~</span> gt<span class="sc">::</span><span class="fu">html</span>(<span class="fu">as.character</span>(.x)))) <span class="sc">%&gt;%</span></span>
+<span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a><span class="fu">gt</span>()  <span class="sc">%&gt;%</span> </span>
+<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a><span class="co"># ---- COLUMN WITH LINK (PIC)       </span></span>
+<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a>    <span class="co"># -- SOL b) OK </span></span>
+<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a>    <span class="co"># set colum format  4 PIC      </span></span>
+<span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">fmt</span> (<span class="at">columns =</span> <span class="st">&#39;link_pic&#39;</span>, <span class="at">fns =</span> f_make_piclink) </span></code></pre></div>
+<div id="ekhgvwfnwo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ekhgvwfnwo table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vwbhfzyjlm thead, #vwbhfzyjlm tbody, #vwbhfzyjlm tfoot, #vwbhfzyjlm tr, #vwbhfzyjlm td, #vwbhfzyjlm th {
+#ekhgvwfnwo thead, #ekhgvwfnwo tbody, #ekhgvwfnwo tfoot, #ekhgvwfnwo tr, #ekhgvwfnwo td, #ekhgvwfnwo th {
   border-style: none;
 }
 
-#vwbhfzyjlm p {
+#ekhgvwfnwo p {
   margin: 0;
   padding: 0;
 }
 
-#vwbhfzyjlm .gt_table {
+#ekhgvwfnwo .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -509,12 +511,12 @@ $(document).ready(function () {
   border-left-color: #D3D3D3;
 }
 
-#vwbhfzyjlm .gt_caption {
+#ekhgvwfnwo .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vwbhfzyjlm .gt_title {
+#ekhgvwfnwo .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -526,7 +528,7 @@ $(document).ready(function () {
   border-bottom-width: 0;
 }
 
-#vwbhfzyjlm .gt_subtitle {
+#ekhgvwfnwo .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -538,7 +540,7 @@ $(document).ready(function () {
   border-top-width: 0;
 }
 
-#vwbhfzyjlm .gt_heading {
+#ekhgvwfnwo .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -550,13 +552,13 @@ $(document).ready(function () {
   border-right-color: #D3D3D3;
 }
 
-#vwbhfzyjlm .gt_bottom_border {
+#ekhgvwfnwo .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vwbhfzyjlm .gt_col_headings {
+#ekhgvwfnwo .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -571,7 +573,7 @@ $(document).ready(function () {
   border-right-color: #D3D3D3;
 }
 
-#vwbhfzyjlm .gt_col_heading {
+#ekhgvwfnwo .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -591,7 +593,7 @@ $(document).ready(function () {
   overflow-x: hidden;
 }
 
-#vwbhfzyjlm .gt_column_spanner_outer {
+#ekhgvwfnwo .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -603,15 +605,15 @@ $(document).ready(function () {
   padding-right: 4px;
 }
 
-#vwbhfzyjlm .gt_column_spanner_outer:first-child {
+#ekhgvwfnwo .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vwbhfzyjlm .gt_column_spanner_outer:last-child {
+#ekhgvwfnwo .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vwbhfzyjlm .gt_column_spanner {
+#ekhgvwfnwo .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -623,11 +625,11 @@ $(document).ready(function () {
   width: 100%;
 }
 
-#vwbhfzyjlm .gt_spanner_row {
+#ekhgvwfnwo .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vwbhfzyjlm .gt_group_heading {
+#ekhgvwfnwo .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -653,7 +655,7 @@ $(document).ready(function () {
   text-align: left;
 }
 
-#vwbhfzyjlm .gt_empty_group_heading {
+#ekhgvwfnwo .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -668,15 +670,15 @@ $(document).ready(function () {
   vertical-align: middle;
 }
 
-#vwbhfzyjlm .gt_from_md > :first-child {
+#ekhgvwfnwo .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vwbhfzyjlm .gt_from_md > :last-child {
+#ekhgvwfnwo .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vwbhfzyjlm .gt_row {
+#ekhgvwfnwo .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -695,7 +697,7 @@ $(document).ready(function () {
   overflow-x: hidden;
 }
 
-#vwbhfzyjlm .gt_stub {
+#ekhgvwfnwo .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -708,7 +710,7 @@ $(document).ready(function () {
   padding-right: 5px;
 }
 
-#vwbhfzyjlm .gt_stub_row_group {
+#ekhgvwfnwo .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -722,15 +724,15 @@ $(document).ready(function () {
   vertical-align: top;
 }
 
-#vwbhfzyjlm .gt_row_group_first td {
+#ekhgvwfnwo .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vwbhfzyjlm .gt_row_group_first th {
+#ekhgvwfnwo .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vwbhfzyjlm .gt_summary_row {
+#ekhgvwfnwo .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -740,16 +742,16 @@ $(document).ready(function () {
   padding-right: 5px;
 }
 
-#vwbhfzyjlm .gt_first_summary_row {
+#ekhgvwfnwo .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vwbhfzyjlm .gt_first_summary_row.thick {
+#ekhgvwfnwo .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vwbhfzyjlm .gt_last_summary_row {
+#ekhgvwfnwo .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -759,7 +761,7 @@ $(document).ready(function () {
   border-bottom-color: #D3D3D3;
 }
 
-#vwbhfzyjlm .gt_grand_summary_row {
+#ekhgvwfnwo .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -769,7 +771,7 @@ $(document).ready(function () {
   padding-right: 5px;
 }
 
-#vwbhfzyjlm .gt_first_grand_summary_row {
+#ekhgvwfnwo .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -779,7 +781,7 @@ $(document).ready(function () {
   border-top-color: #D3D3D3;
 }
 
-#vwbhfzyjlm .gt_last_grand_summary_row_top {
+#ekhgvwfnwo .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -789,11 +791,11 @@ $(document).ready(function () {
   border-bottom-color: #D3D3D3;
 }
 
-#vwbhfzyjlm .gt_striped {
+#ekhgvwfnwo .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vwbhfzyjlm .gt_table_body {
+#ekhgvwfnwo .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -802,7 +804,7 @@ $(document).ready(function () {
   border-bottom-color: #D3D3D3;
 }
 
-#vwbhfzyjlm .gt_footnotes {
+#ekhgvwfnwo .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -816,7 +818,7 @@ $(document).ready(function () {
   border-right-color: #D3D3D3;
 }
 
-#vwbhfzyjlm .gt_footnote {
+#ekhgvwfnwo .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -825,7 +827,7 @@ $(document).ready(function () {
   padding-right: 5px;
 }
 
-#vwbhfzyjlm .gt_sourcenotes {
+#ekhgvwfnwo .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -839,7 +841,7 @@ $(document).ready(function () {
   border-right-color: #D3D3D3;
 }
 
-#vwbhfzyjlm .gt_sourcenote {
+#ekhgvwfnwo .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -847,63 +849,63 @@ $(document).ready(function () {
   padding-right: 5px;
 }
 
-#vwbhfzyjlm .gt_left {
+#ekhgvwfnwo .gt_left {
   text-align: left;
 }
 
-#vwbhfzyjlm .gt_center {
+#ekhgvwfnwo .gt_center {
   text-align: center;
 }
 
-#vwbhfzyjlm .gt_right {
+#ekhgvwfnwo .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vwbhfzyjlm .gt_font_normal {
+#ekhgvwfnwo .gt_font_normal {
   font-weight: normal;
 }
 
-#vwbhfzyjlm .gt_font_bold {
+#ekhgvwfnwo .gt_font_bold {
   font-weight: bold;
 }
 
-#vwbhfzyjlm .gt_font_italic {
+#ekhgvwfnwo .gt_font_italic {
   font-style: italic;
 }
 
-#vwbhfzyjlm .gt_super {
+#ekhgvwfnwo .gt_super {
   font-size: 65%;
 }
 
-#vwbhfzyjlm .gt_footnote_marks {
+#ekhgvwfnwo .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vwbhfzyjlm .gt_asterisk {
+#ekhgvwfnwo .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vwbhfzyjlm .gt_indent_1 {
+#ekhgvwfnwo .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vwbhfzyjlm .gt_indent_2 {
+#ekhgvwfnwo .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vwbhfzyjlm .gt_indent_3 {
+#ekhgvwfnwo .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vwbhfzyjlm .gt_indent_4 {
+#ekhgvwfnwo .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vwbhfzyjlm .gt_indent_5 {
+#ekhgvwfnwo .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -921,6 +923,7 @@ $(document).ready(function () {
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="dislivello">dislivello</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="data">data</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="link_web">link_web</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="link_pic_comp">link_pic_comp</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="link_pic">link_pic</th>
     </tr>
   </thead>
@@ -935,7 +938,8 @@ $(document).ready(function () {
 <td headers="dislivello" class="gt_row gt_right">215</td>
 <td headers="data" class="gt_row gt_left">12 Giu 2020</td>
 <td headers="link_web" class="gt_row gt_center"><a href="https://www.avmtrekking.com/anello-di-nazzano-serale">web</a></td>
-<td headers="link_pic" class="gt_row gt_left"><a href="/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg" target="_blank"><img width="50px" height="50px" border="0" align="center"  src="reference/AnelloNazzano.jpg" alt=""/> </a></td></tr>
+<td headers="link_pic_comp" class="gt_row gt_left">/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg</td>
+<td headers="link_pic" class="gt_row gt_left"><a href="/reference/AnelloNazzano.jpg" target="_blank"><img width="50px" height="50px" border="0" align="center"  src="/reference/AnelloNazzano.jpg" alt=""/> </a></td></tr>
     <tr><td headers="livello" class="gt_row gt_left">T</td>
 <td headers="catena" class="gt_row gt_left">Montalto Pavese (PV)</td>
 <td headers="citta_provincia" class="gt_row gt_left">Montalto Pavese (PV)</td>
@@ -946,7 +950,8 @@ $(document).ready(function () {
 <td headers="dislivello" class="gt_row gt_right">310</td>
 <td headers="data" class="gt_row gt_left">12 Giu 2023</td>
 <td headers="link_web" class="gt_row gt_center"><a href="https://www.komoot.com/it-it/tour/1093134865">web</a></td>
-<td headers="link_pic" class="gt_row gt_left"><a href="/Users/luisamimmi/Github/gite/reference/AnelloMontalto.png" target="_blank"><img width="50px" height="50px" border="0" align="center"  src="reference/AnelloMontalto.png" alt=""/> </a></td></tr>
+<td headers="link_pic_comp" class="gt_row gt_left">/Users/luisamimmi/Github/gite/reference/AnelloMontalto.png</td>
+<td headers="link_pic" class="gt_row gt_left"><a href="/reference/AnelloMontalto.png" target="_blank"><img width="50px" height="50px" border="0" align="center"  src="/reference/AnelloMontalto.png" alt=""/> </a></td></tr>
     <tr><td headers="livello" class="gt_row gt_left">NA</td>
 <td headers="catena" class="gt_row gt_left">NA</td>
 <td headers="citta_provincia" class="gt_row gt_left">NA</td>
@@ -957,6 +962,7 @@ $(document).ready(function () {
 <td headers="dislivello" class="gt_row gt_right">NA</td>
 <td headers="data" class="gt_row gt_left">NA</td>
 <td headers="link_web" class="gt_row gt_center"><a href>web</a></td>
+<td headers="link_pic_comp" class="gt_row gt_left">NA</td>
 <td headers="link_pic" class="gt_row gt_left"><a href="NA" target="_blank"><img width="50px" height="50px" border="0" align="center"  src="NA" alt=""/> </a></td></tr>
     <tr><td headers="livello" class="gt_row gt_left">NA</td>
 <td headers="catena" class="gt_row gt_left">NA</td>
@@ -968,6 +974,7 @@ $(document).ready(function () {
 <td headers="dislivello" class="gt_row gt_right">NA</td>
 <td headers="data" class="gt_row gt_left">NA</td>
 <td headers="link_web" class="gt_row gt_center"><a href>web</a></td>
+<td headers="link_pic_comp" class="gt_row gt_left">NA</td>
 <td headers="link_pic" class="gt_row gt_left"><a href="NA" target="_blank"><img width="50px" height="50px" border="0" align="center"  src="NA" alt=""/> </a></td></tr>
   </tbody>
   
