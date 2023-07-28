@@ -1,8 +1,5 @@
 ---
-title: "Home"
+title: ""
 ---
 
-
-## Description of the Project  
- 
-
+## Appunti di gite in montagna... 🏔️

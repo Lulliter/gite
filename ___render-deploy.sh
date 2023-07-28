@@ -21,6 +21,8 @@ git status
 git add docs/* # specific
 git add -A # ALL
 git add -u # tracked
+git add Dafare.Rmd
+git add Fatte.Rmd
 
 # Create Std commit "message"....
 msg="rebuilt on `date`"
@@ -29,10 +31,11 @@ if [ $# -eq 1 ]
 fi
 # ... Commit Those changes.
 git commit -m "$msg"
-		# git commit -m "kable in Contacts"
+		# git commit -m "gt in Fatte con pic link"
 		# git commit -m " output in ./docs/"
 
 # Push source and build repos.
 git push origin master
+
 
 

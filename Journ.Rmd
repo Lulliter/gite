@@ -12,6 +12,8 @@ output:
     toc_float: yes
 ---
 
+## Notes 
+
 ```{r}
 # a custom R function to insert the correct syntax depending on the output format using the is_latex_output() and is_html_output() functions in knitr as follows:
 colorize <- function(x, color) {
