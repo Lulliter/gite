@@ -72,8 +72,8 @@ gite2 <- tibble(
                         "https://www.komoot.com/it-it/tour/1093134865", NA, NA), 
     link_pic_comp       = c("/Users/luisamimmi/Github/gite/reference/AnelloNazzano.jpg", 
                        "/Users/luisamimmi/Github/gite/reference/AnelloMontalto.png", NA, NA ),
-    link_pic       = c("/reference/AnelloNazzano.jpg", 
-                       "/reference/AnelloMontalto.png", NA, NA ),
+    link_pic       = c(here("reference", "AnelloNazzano.jpg"), 
+                       here("reference", "AnelloMontalto.png"), NA, NA ),
     persona_di_rif  = c("Pierre Greppi", NA, NA, NA)
 ) 
 
